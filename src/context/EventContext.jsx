@@ -43,7 +43,7 @@ export const EventProvider = ({ children }) => {
     }
 
     return (
-        <EventContext.Provider value={{ events, selectedCity, likedEvents, setSelectedCity, setLikedEvents, setEvents, toggleLike }}>
+        <EventContext.Provider value={{ events, cities, selectedCity, likedEvents, setSelectedCity, setLikedEvents, setEvents, toggleLike }}>
             {children}
         </EventContext.Provider>
     )
