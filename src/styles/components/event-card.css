@@ -95,7 +95,7 @@
 .card-icons {
     position: absolute;
     top: 10px;
-    left: 290px;
+    right: 10px;
     background-color: white;
     padding: 5px;
     border-radius: 50%;
