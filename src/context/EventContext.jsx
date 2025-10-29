@@ -1,22 +1,22 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import { fetchEvents, fetchCities } from '../services/api';
 
 export const EventContext = createContext();
 
 export const EventProvider = ({ children }) => {
     const [events, setEvents] = useState([]);
+    const [cities, setCities] = useState([]);
     const [selectedCity, setSelectedCity] = useState('');
     const [likedEvents, setLikedEvents] = useState([]);
 
     useEffect(() => {
-        loadLike()
+        loadLike();
+        fetchEvents().then(setEvents);
+        fetchCities().then(setCities);
     }, []);
 
-
     useEffect(() => {
-        setSelectedCity(selectedCity);
         fetchEvents(selectedCity).then(setEvents);
-        fetchCities().then(setCities);
     }, [selectedCity]);
 
     const toggleLike = (event) => {
