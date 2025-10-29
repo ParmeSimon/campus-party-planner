@@ -1,0 +1,11 @@
+.home-page-title {
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+.Container {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: auto;
+}
