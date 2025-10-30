@@ -1,0 +1,14 @@
+/* city-selector.css */ 
+.city-selector__select {
+    appearance: none;
+    padding: 0.5rem 2rem;
+    border: 2px solid #FF6B3560;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.city-selector__select:focus {
+    border-color: #FF6B3560;
+}
