@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
-import { fetchEvents, fetchCities, fetchCategories } from '../services/api';
+import { fetchEvents, fetchCities, fetchStats, fetchCategories } from '../services/api';
 
 export const EventContext = createContext();
 
@@ -8,12 +8,14 @@ export const EventProvider = ({ children }) => {
     const [cities, setCities] = useState([]);
     const [selectedCity, setSelectedCity] = useState('');
     const [likedEvents, setLikedEvents] = useState([]);
+    const [stats, setStats] = useState({});
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
         loadLike();
         fetchEvents().then(setEvents);
         fetchCities().then(setCities);
+        fetchStats().then(setStats);
         fetchCategories().then(setCategories);
     }, []);
 
@@ -45,7 +47,7 @@ export const EventProvider = ({ children }) => {
     }
 
     return (
-        <EventContext.Provider value={{ events, cities, selectedCity, likedEvents, setSelectedCity, setLikedEvents, setEvents, toggleLike, categories }}>
+        <EventContext.Provider value={{ events, cities, selectedCity, likedEvents, setSelectedCity, setLikedEvents, setEvents, toggleLike, categories, stats }}>
             {children}
         </EventContext.Provider>
     )

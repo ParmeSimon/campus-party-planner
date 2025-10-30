@@ -14,3 +14,17 @@ export async function fetchEvents(city = null) {
     const data = await response.json();
     return data.data;
 }
+
+export async function fetchCategories() {
+    const url = `${API_URL}/categories`
+    const response = await fetch(url);
+    const data = await response.json();
+    return data.data;
+}
+
+export async function fetchStats() {
+    const url = `${API_URL}/stats`;
+    const response = await fetch(url);
+    const data = await response.json();
+    return data.data;
+}
