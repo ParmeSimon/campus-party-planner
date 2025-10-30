@@ -4,7 +4,7 @@ import "../styles/components/event-list.css";
 
 function EventList({ events }) {
     return (
-        <Box className="Container">
+        <Box className="event-list-container">
             <p variant="4" className="event-list-title">Tous les évenements - {events.length}</p>
             {events.length > 0 ? (
                 <Grid container spacing={1}>
