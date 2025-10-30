@@ -28,3 +28,10 @@ export async function fetchStats() {
     const data = await response.json();
     return data.data;
 }
+
+export async function fetchEvent(id) {
+    const url = `${API_URL}/events/${id}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    return data.data;
+}
