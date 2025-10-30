@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
-import { fetchEvents, fetchCities } from '../services/api';
+import { fetchEvents, fetchCities, fetchStats } from '../services/api';
+import { data } from 'react-router-dom';
 
 export const EventContext = createContext();
 
@@ -8,11 +9,13 @@ export const EventProvider = ({ children }) => {
     const [cities, setCities] = useState([]);
     const [selectedCity, setSelectedCity] = useState('');
     const [likedEvents, setLikedEvents] = useState([]);
+    const [stats, setStats] = useState({});
 
     useEffect(() => {
         loadLike();
         fetchEvents().then(setEvents);
         fetchCities().then(setCities);
+        fetchStats().then(setStats);
     }, []);
 
     useEffect(() => {
@@ -43,7 +46,7 @@ export const EventProvider = ({ children }) => {
     }
 
     return (
-        <EventContext.Provider value={{ events, selectedCity, likedEvents, setSelectedCity, setLikedEvents, setEvents, toggleLike }}>
+        <EventContext.Provider value={{ events, selectedCity, likedEvents, setSelectedCity, setLikedEvents, setEvents, toggleLike, stats }}>
             {children}
         </EventContext.Provider>
     )
