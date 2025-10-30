@@ -1,32 +1,31 @@
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title } from 'chart.js';
 import '../styles/components/stats-chart.css';
+import { useContext } from "react";
+import { EventContext } from "../context/EventContext";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title);
 
-function StatsChartEvent({ events }) {
+function StatsChartEvent() {
+  
+  const { categories, stats } = useContext(EventContext);
 
-    const categoryCounts = events.reduce((acc, event) => {
-        acc[event.category] = (acc[event.category] || 0) + 1;
-        return acc;
-    }, {});
+  const data = {
+    labels: categories,
+    datasets: [{
+      label: 'Nombre dévénements',
+      data: stats.eventsByCategory,
+      backgroundColor: [
+        '#FF6B35',
+        '#FF8C42',
+        '#FFB347',
+        '#FFA07A'
+      ],
+      borderRadius: 10
+    }]
+  };
 
-    const data = {
-        labels: Object.keys(categoryCounts),
-        datasets: [{
-            label: 'Nombre dévénements',
-            data: Object.values(categoryCounts),
-            backgroundColor: [
-                '#FF6B35',
-                '#FF8C42',
-                '#FFB347',
-                '#FFA07A'
-            ],
-            borderRadius: 10
-        }]
-    };
-
-    const options = {
+  const options = {
     responsive: true,
     plugins: {
       legend: {
@@ -52,11 +51,11 @@ function StatsChartEvent({ events }) {
     }
   };
 
-    return (
-        <>
-          <Bar data={data}  options={options} className="stats-chart-event"/>
-        </>
-    );
+  return (
+    <>
+      <Bar data={data}  options={options} className="stats-chart-event"/>
+    </>
+  );
 }
 
 export default StatsChartEvent;
