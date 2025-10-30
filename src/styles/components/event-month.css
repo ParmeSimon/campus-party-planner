@@ -22,4 +22,22 @@
 
 .event-month--right img {
     border-radius: 10px;
+    width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+    .event-month {
+        flex-direction: column;
+    }
+    .event-month--left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-right: 0;
+        text-align: center;
+    }
+    .event-month--right img {
+        margin-top: 1rem;
+    }
 }
