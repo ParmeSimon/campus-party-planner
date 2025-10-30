@@ -1,0 +1,20 @@
+.Container {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: auto;
+}
+
+
+
+.charts-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    text-align: center;
+    width: 100%;
+    flex-direction: column;
+    padding: 20px 0;
+}

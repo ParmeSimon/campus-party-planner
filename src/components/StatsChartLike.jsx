@@ -1,11 +1,11 @@
 import { useContext, useMemo } from "react";
 import { Pie } from "react-chartjs-2";
 import {
-  Chart as ChartJS,
-  ArcElement,
-  Tooltip,
-  Legend,
-  Title,
+    Chart as ChartJS,
+    ArcElement,
+    Tooltip,
+    Legend,
+    Title,
 } from "chart.js";
 import { EventContext } from "../context/EventContext";
 import "../styles/components/stats-chart.css";
@@ -42,40 +42,43 @@ function StatsChartLike() {
         labels: categories,
         datasets: [
             {
-            data: [nbParty, nbConcert, nbFestival, nbOpenAir],
-            backgroundColor: [
-                '#FF6B35',
-                '#FF8C42',
-                '#FFB347',
-                '#FFA07A'
-            ],
-            borderWidth: 1,
-        },
+                data: [nbParty, nbConcert, nbFestival, nbOpenAir],
+                backgroundColor: [
+                    '#FF6B35',
+                    '#FF8C42',
+                    '#FFB347',
+                    '#FFA07A'
+                ],
+                borderWidth: 1,
+            },
         ],
     };
 
     const options = {
         responsive: true,
         plugins: {
-        legend: { position: "bottom" },
-        title: {
-            display: true,
-            text: "Répartition des likes par catégorie",
-            font: { size: 16 },
-        },
-        tooltip: {
-            callbacks: {
-            label: (ctx) => {
-                const val = ctx.parsed;
-                const pct = total ? Math.round((val / total) * 100) : 0;
-                return `${ctx.label}: ${val} (${pct}%)`;
+            legend: { position: "bottom" },
+            title: {
+                display: true,
+                text: "Répartition des likes par catégorie",
+                font: { size: 16 },
             },
+            tooltip: {
+                callbacks: {
+                    label: (ctx) => {
+                        const val = ctx.parsed;
+                        const pct = total ? Math.round((val / total) * 100) : 0;
+                        return `${ctx.label}: ${val} (${pct}%)`;
+                    },
+                },
             },
-        },
         },
     };
 
-    return <Pie data={data} options={options} />;
+    return (
+        <div className="stats-chart-event">
+            <Pie data={data} options={options} />
+        </div>);
 }
 
 export default StatsChartLike;
