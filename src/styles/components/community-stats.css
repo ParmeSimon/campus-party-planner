@@ -1,8 +1,7 @@
 .community-stats {
     color: white;
     display: flex;
-    background-color: #F46431;
-    border-radius: 25px;
+    border-radius: 15px;
     flex-direction: column;
     padding: 20px;
     width: 30%;
