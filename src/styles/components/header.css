@@ -2,9 +2,10 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fff;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--header-bg);
+    box-shadow: 2px 2px 8px var(--shadow);
     padding: 0.5rem 2rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .header-logo {
@@ -16,9 +17,9 @@ header {
     margin-left: 1rem;
 }
 
-.header-logo__text h1{
+.header-logo__text h1 {
     font-size: 1rem;
-    color: #FF6B35;
+    color: var(--orange-perm);
 }
 
 .header-logo__img {
@@ -33,8 +34,8 @@ header {
 
 .header-links .link {
     text-decoration: none;
-    color: #333;
-    border: 2px solid #FF6B35;
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
     padding: 0.5rem 2rem;
     border-radius: 24px;
     font-weight: 500;
@@ -42,6 +43,62 @@ header {
 }
 
 .active {
-    background-color: #FF6B35;
-    color: #fff !important;
+    background-color: var(--orange-perm);
+    color: var(--text-white) !important;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+}
+
+.favorite-empty {
+    color: var(--text-muted);
+    opacity: 0.8;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+}
+
+.favorite-filled {
+    color: var(--icon-color);
+    animation: heartBeat 0.6s ease-in-out;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+}
+
+.favorite-empty:hover {
+    color: var(--orange-perm);
+    opacity: 1;
+}
+
+/* Styles pour le bouton de basculement de thème */
+.theme-toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: var(--text-primary);
+}
+
+.theme-toggle-btn:hover {
+    background-color: var(--bg-main);
+    transform: scale(1.1);
+}
+
+.theme-toggle-btn:focus {
+    outline: 2px solid var(--border-color);
+    outline-offset: 2px;
 }

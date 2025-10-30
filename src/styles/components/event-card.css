@@ -1,15 +1,15 @@
 .card {
     width: 100%;
-    background-color: #fff;
+    background-color: var(--card-bg);
     border-radius: 15px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px 0 var(--shadow);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     min-height: 460px;
+    transition: all 0.3s ease;
 
     &:hover {
-        transition: all 0.3s ease;
         box-shadow: 0px 0 10px 0 rgba(255, 166, 0, 0.5);
     }
 }
@@ -32,20 +32,20 @@
     font-size: 1rem;
     font-weight: bold;
     margin-bottom: 10px;
-    color: #333;
+    color: var(--text-primary);
     margin-top: 5px;
 }
 
 .card-text {
     margin-bottom: 8px;
-    color: #666;
+    color: var(--text-secondary);
     line-height: 1.4;
     margin-top: 5px;
     font-size: 0.8rem;
 }
 
 .card-icon {
-    color: orange;
+    color: var(--icon-color);
     transition: all 0.3s ease;
 }
 
@@ -60,17 +60,17 @@
 }
 
 .favorite-empty {
-    color: #ccc;
+    color: var(--text-muted);
     opacity: 0.8;
 }
 
 .favorite-filled {
-    color: orange;
+    color: var(--icon-color);
     animation: heartBeat 0.6s ease-in-out;
 }
 
 .favorite-empty:hover {
-    color: orange;
+    color: var(--orange-perm);
     opacity: 1;
 }
 
@@ -122,7 +122,7 @@
     top: 220px;
     left: 10px;
     color: white;
-    background-color: orange;
+    background-color: var(--bg-tertiary);
     padding: 3px 8px;
     border-radius: 9px;
     font-size: 0.8rem;
@@ -131,7 +131,7 @@
 
 .card-description {
     font-size: 0.8rem;
-    color: #666;
+    color: var(--text-secondary);
     line-height: 1.4;
     margin-bottom: 0px;
     display: -webkit-box;

@@ -22,9 +22,9 @@ export const GroupCommunityStats = (stats) => {
     const mostPopularCategory = getMostPopularCategory();
     return (
         <div className="stats-container">
-            <CommunityStats icon={CalendarMonthIcon} number={stats?.totalEvents || 0} text="Total d'événements" color="#F46431" />
-            <CommunityStats icon={FavoriteIcon} number={totalLikes} text="Total de likes" color="#FF8238" />
-            <CommunityStats icon={CategoryIcon} number={mostPopularCategory} text="Catégorie la plus populaire" color="#F46431" />
+            <CommunityStats icon={CalendarMonthIcon} number={stats?.totalEvents || 0} text="Total d'événements"/>
+            <CommunityStats icon={FavoriteIcon} number={totalLikes} text="Total de likes"/>
+            <CommunityStats icon={CategoryIcon} number={mostPopularCategory} text="Catégorie la plus populaire" />
         </div>
     );
 };
