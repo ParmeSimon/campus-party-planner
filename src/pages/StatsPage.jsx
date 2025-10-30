@@ -1,7 +1,9 @@
+import Header from "../components/Header";
+
 function StatsPage() {
     return (
         <div>
-            <h1>Stats Page</h1>
+            <Header/>
         </div>
     )
 }
