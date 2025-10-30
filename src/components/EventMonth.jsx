@@ -2,7 +2,6 @@ import "../styles/components/event-month.css";
 
 function EventMonth({ events }) {
 
-
     if (!events || events.length === 0) {
         return (
             <div className="event-month--loading">

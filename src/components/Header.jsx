@@ -3,11 +3,15 @@ import CitySelector from "./CitySelector";
 import "../styles/components/header.css";
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { EventContext } from "../context/EventContext";
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+
 function Header() {
     const { isDarkMode, toggleDarkMode } = useContext(EventContext);
     const isActive = (path) => window.location.pathname === path;
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <header>
