@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { EventContext } from '../context/EventContext';
 import '../styles/components/city-selector.css';
 

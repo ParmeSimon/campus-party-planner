@@ -1,0 +1,22 @@
+.category-btns {
+    display: flex;
+    gap: 1rem;
+    margin: 0 1rem 1rem 10%;
+}
+
+.category-btns button {
+    background-color: var(--bg-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.category-btns button:hover {
+    background-color: var(--border-color);
+}
+
+.category-btns .active {
+    background-color: var(--border-color);
+}
