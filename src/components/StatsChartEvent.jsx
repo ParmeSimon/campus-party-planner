@@ -52,9 +52,9 @@ function StatsChartEvent() {
   };
 
   return (
-    <>
-      <Bar data={data}  options={options} className="stats-chart-event"/>
-    </>
+    <div className="stats-chart-event">
+      <Bar data={data}  options={options} />
+    </div>
   );
 }
 
