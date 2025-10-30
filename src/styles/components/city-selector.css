@@ -14,3 +14,9 @@
 .city-selector__select:focus {
     border: 2px solid var(--border-color);
 }
+
+@media screen and (max-width: 900px) {
+    .city-selector__select {
+        display: none;
+    }
+}
