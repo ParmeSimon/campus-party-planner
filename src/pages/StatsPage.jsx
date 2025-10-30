@@ -5,6 +5,7 @@ import { EventContext } from "../context/EventContext";
 import CategoryIcon from '@mui/icons-material/Category';
 import { useContext } from "react";
 import "../styles/pages/stats-page.css";
+import Header from "../components/Header";
 
 function StatsPage() {
     const { stats } = useContext(EventContext);
@@ -25,6 +26,9 @@ function StatsPage() {
     const mostPopularCategory = getMostPopularCategory();
 
     return (
+        <div>
+            <Header/>
+        </div>
         <div className="Container">
             <div className="stats-container">
                 <CommunityStats icon={CalendarMonthIcon} number={stats?.totalEvents || 0} text="Total d'événements" />
@@ -32,6 +36,7 @@ function StatsPage() {
                 <CommunityStats icon={CategoryIcon} number={mostPopularCategory} text="Catégorie la plus populaire" />
             </div>
         </div>
+        
     )
 }
 
