@@ -1,13 +1,19 @@
 import { useContext } from "react";
 import { EventContext } from "../context/EventContext";
-import EventList from "../components/EventList";
 import Header from "../components/Header";
+import EventMonth from "../components/EventMonth";
+import EventList from "../components/EventList";
+import "../styles/pages/home-page.css";
 
 function HomePage() {
     const { events } = useContext(EventContext);
 
     return (
-        <Header/>
+        <main>
+            <Header />
+            <EventMonth events={events} />
+            <EventList events={events} />
+        </main>
     )
 }
 
