@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
-import { fetchEvents, fetchCities, fetchStats } from '../services/api';
-import { data } from 'react-router-dom';
+import { fetchEvents, fetchCities, fetchStats, fetchCategories } from '../services/api';
 
 export const EventContext = createContext();
 
@@ -10,12 +9,14 @@ export const EventProvider = ({ children }) => {
     const [selectedCity, setSelectedCity] = useState('');
     const [likedEvents, setLikedEvents] = useState([]);
     const [stats, setStats] = useState({});
+    const [categories, setCategories] = useState([]);
 
     useEffect(() => {
         loadLike();
         fetchEvents().then(setEvents);
         fetchCities().then(setCities);
         fetchStats().then(setStats);
+        fetchCategories().then(setCategories);
     }, []);
 
     useEffect(() => {
@@ -27,7 +28,7 @@ export const EventProvider = ({ children }) => {
         if (likedEvents.includes(event.id)) {
             updatedLikes = likedEvents.filter(id => id !== event.id);
         } else {
-            updatedLikes = [...likedEvents, event.id];
+            updatedLikes = [...likedEvents, event.id.toString()];
         }
         setLikedEvents(updatedLikes);
         saveLikes(updatedLikes);
@@ -46,7 +47,7 @@ export const EventProvider = ({ children }) => {
     }
 
     return (
-        <EventContext.Provider value={{ events, selectedCity, likedEvents, setSelectedCity, setLikedEvents, setEvents, toggleLike, stats }}>
+        <EventContext.Provider value={{ events, cities, selectedCity, likedEvents, setSelectedCity, setLikedEvents, setEvents, toggleLike, categories, stats }}>
             {children}
         </EventContext.Provider>
     )
