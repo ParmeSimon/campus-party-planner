@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
-import { fetchEvents, fetchCities } from '../services/api';
+import { fetchEvents, fetchCities, fetchCategories } from '../services/api';
 
 export const EventContext = createContext();
 
@@ -8,11 +8,13 @@ export const EventProvider = ({ children }) => {
     const [cities, setCities] = useState([]);
     const [selectedCity, setSelectedCity] = useState('');
     const [likedEvents, setLikedEvents] = useState([]);
+    const [categories, setCategories] = useState([]);
 
     useEffect(() => {
         loadLike();
         fetchEvents().then(setEvents);
         fetchCities().then(setCities);
+        fetchCategories().then(setCategories);
     }, []);
 
     useEffect(() => {
@@ -24,7 +26,7 @@ export const EventProvider = ({ children }) => {
         if (likedEvents.includes(event.id)) {
             updatedLikes = likedEvents.filter(id => id !== event.id);
         } else {
-            updatedLikes = [...likedEvents, event.id];
+            updatedLikes = [...likedEvents, event.id.toString()];
         }
         setLikedEvents(updatedLikes);
         saveLikes(updatedLikes);
@@ -43,7 +45,7 @@ export const EventProvider = ({ children }) => {
     }
 
     return (
-        <EventContext.Provider value={{ events, selectedCity, likedEvents, setSelectedCity, setLikedEvents, setEvents, toggleLike }}>
+        <EventContext.Provider value={{ events, selectedCity, likedEvents, setSelectedCity, setLikedEvents, setEvents, toggleLike, categories }}>
             {children}
         </EventContext.Provider>
     )
