@@ -6,7 +6,7 @@
 .event-list-container {
     display: flex;
     flex-direction: column;
-    width: 95%;
+    width: 80%;
     margin-inline: auto;
     margin-bottom: 50px;
 }
