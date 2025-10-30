@@ -62,6 +62,8 @@ function StatsChartLike() {
                 display: true,
                 text: "Répartition des likes par catégorie",
                 font: { size: 16 },
+                color: '#FF6B35'
+
             },
             tooltip: {
                 callbacks: {
