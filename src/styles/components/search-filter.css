@@ -1,0 +1,12 @@
+.search-bar { 
+    display:flex; 
+    margin:1rem 10%; 
+}
+
+.search-bar input{
+    width: min(560px, 90%);
+    padding: .65rem 1rem;
+    border: 2px solid #FF6B35; 
+    border-radius: 999px;
+    outline: none; font-size: 1rem; 
+}
