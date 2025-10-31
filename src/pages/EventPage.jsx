@@ -26,10 +26,11 @@ function EventPage() {
                 <div className="card-event-page">
                     <div className="event-page">
                         <img src={event.image} alt={event.name} className="event-page-image" />
-                        <h1>{event.name}</h1>
+                        <h1>Nom {event.name}</h1>
                         <p>{event.description}</p>
                         <p>{event.date}</p>
                         <p>{event.location}</p>
+                        <p>{event.city}</p>
                     </div>
                 </div>
 
