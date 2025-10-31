@@ -5,7 +5,10 @@
     flex-direction: column;
     padding: 20px;
     width: 30%;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 4px 8px var(--shadow);
+    transition: box-shadow 0.3s ease;
+    background-color: var(--bg-tertiary);
+    border: 2px solid var(--border-color);
 }
 
 .community-stats-number {

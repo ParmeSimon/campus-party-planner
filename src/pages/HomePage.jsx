@@ -4,15 +4,19 @@ import Header from "../components/Header";
 import EventMonth from "../components/EventMonth";
 import EventList from "../components/EventList";
 import "../styles/pages/home-page.css";
+import ButtonsFilter from "../components/ButtonsFilter";
+import SearchFilter from "../components/SearchFilter";
 
 function HomePage() {
-    const { events } = useContext(EventContext);
+    const { events, search } = useContext(EventContext);
 
     return (
         <main>
             <Header />
             <EventMonth events={events} />
-            <EventList events={events} />
+            <SearchFilter />
+            <ButtonsFilter />
+            <EventList events={events} search={search} />
         </main>
     )
 }

@@ -1,14 +1,22 @@
-/* city-selector.css */ 
+/* city-selector.css */
 .city-selector__select {
     appearance: none;
     padding: 0.5rem 2rem;
-    border: 2px solid #FF6B3560;
+    border: 2px solid var(--border-color);
     border-radius: 8px;
     cursor: pointer;
     outline: none;
     transition: all 0.2s ease-in-out;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
 }
 
 .city-selector__select:focus {
-    border-color: #FF6B3560;
+    border: 2px solid var(--border-color);
+}
+
+@media screen and (max-width: 900px) {
+    .city-selector__select {
+        display: none;
+    }
 }

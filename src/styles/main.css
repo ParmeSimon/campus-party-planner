@@ -1,7 +1,62 @@
+:root {
+    --bg-primary: #f9f9f9;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #FF8238;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --text-muted: #999999;
+    --border-color: #FF8238;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --accent-primary: #007bff;
+    --accent-secondary: #6c757d;
+    --success: #28a745;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --card-bg: #ffffff;
+    --header-bg: #ffffff;
+    --button-bg: #007bff;
+    --button-text: #ffffff;
+    --button-hover: #0056b3;
+    --icon-color: orange;
+    --orange-perm: #FF8238;
+    --text-white: #ffffff;
+}
+
+body.dark-theme {
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
+    --bg-tertiary: #1e1e1e;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --text-muted: #808080;
+    --border-color: #FF8238;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --accent-primary: #4dabf7;
+    --accent-secondary: #868e96;
+    --success: #51cf66;
+    --warning: #ffd43b;
+    --danger: #ff6b6b;
+    --card-bg: #1e1e1e;
+    --header-bg: #1e1e1e;
+    --button-bg: #4dabf7;
+    --button-text: #ffffff;
+    --button-hover: #339af0;
+    --icon-color: orange;
+    --text-white: #ffffff;
+}
+
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    background-color: #f9f9f9;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }

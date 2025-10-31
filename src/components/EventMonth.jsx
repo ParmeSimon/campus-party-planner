@@ -1,7 +1,7 @@
 import "../styles/components/event-month.css";
 
 function EventMonth({ events }) {
-    
+
     if (!events || events.length === 0) {
         return (
             <div className="event-month--loading">
@@ -19,7 +19,7 @@ function EventMonth({ events }) {
                     <span>{events[0].category}</span>
                 </div>
                 <div className="event-month--right">
-                    <img src={events[0].image} alt="Image événement"/>
+                    <img src={events[0].image} alt="Image événement" />
                 </div>
             </div>
         );
