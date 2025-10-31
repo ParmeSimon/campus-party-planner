@@ -8,11 +8,17 @@ import { EventContext } from '../context/EventContext';
 import { Link } from 'react-router-dom';
 export const EventCard = ({ event }) => {
     const { toggleLike, likedEvents } = useContext(EventContext);
+
+    const handleClick = (event, e) => {
+        toggleLike(event);
+        e.preventDefault();
+    }
+
     return (
         <Link to={`/event/${event.id}`} className='card-link'>
             <div className="card">
                 <div className="card-header">
-                    <div className="card-icons" onClick={() => toggleLike(event)}>
+                    <div className="card-icons" onClick={(e) => handleClick(event, e)}>
                         {likedEvents.includes(event.id) ?
                             <FavoriteIcon className="card-icon favorite-filled" sx={{ fontSize: '1.2rem' }} /> :
                             <FavoriteBorderIcon className="card-icon favorite-empty" sx={{ fontSize: '1.2rem' }} />}
