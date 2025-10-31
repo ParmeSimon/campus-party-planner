@@ -11,6 +11,7 @@ export const EventProvider = ({ children }) => {
     const [stats, setStats] = useState({});
     const [categories, setCategories] = useState([]);
     const [selectedCategories, setSelectedCategories] = useState('');
+    const [search, setSearch] = useState("");
     const [isDarkMode, setIsDarkMode] = useState(() => {
         const savedTheme = localStorage.getItem('darkMode');
         return savedTheme ? JSON.parse(savedTheme) : false;
@@ -34,8 +35,8 @@ export const EventProvider = ({ children }) => {
     }, [isDarkMode]);
 
     useEffect(() => {
-        fetchEvents(selectedCity, selectedCategories).then(setEvents);
-    }, [selectedCity, selectedCategories]);
+        fetchEvents(selectedCity, selectedCategories, search).then(setEvents);
+    }, [selectedCity, selectedCategories, search]);
 
     const toggleLike = (event) => {
         let updatedLikes;
@@ -65,7 +66,7 @@ export const EventProvider = ({ children }) => {
     }
 
     return (
-        <EventContext.Provider value={{ isDarkMode, toggleDarkMode, events, cities, selectedCity, likedEvents, setSelectedCity, setLikedEvents, setEvents, toggleLike, categories, stats, selectedCategories, setSelectedCategories }}>
+        <EventContext.Provider value={{ isDarkMode, toggleDarkMode, events, cities, selectedCity, likedEvents, setSelectedCity, setLikedEvents, setEvents, toggleLike, categories, stats, selectedCategories, setSelectedCategories, search, setSearch }}>
             {children}
         </EventContext.Provider>
     )
