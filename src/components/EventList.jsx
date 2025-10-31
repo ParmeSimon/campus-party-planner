@@ -7,10 +7,10 @@ function EventList({ events, search }) {
     const filteredEvents = events.filter((event) =>
         event.name.toLowerCase().includes(search.toLowerCase())
     );
-    
+
     return (
         <Box className="event-list-container">
-            <p variant="4" className="event-list-title">Tous les évenements - {events.length}</p>
+            <p variant="4" className="event-list-title">Tous les évenements - {filteredEvents.length}</p>
             {events.length > 0 ? (
                 <Grid container spacing={1}>
                     {events && filteredEvents.map((event) => (

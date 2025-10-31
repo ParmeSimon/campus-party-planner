@@ -38,7 +38,7 @@ export default function Map({ address }) {
             style={{ height: "100%", width: "100%", borderRadius: "10px" }}
         >
             <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
+                attribution='<a href="https://www.openstreetmap.org/"></a>'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <Marker position={[coords.lat, coords.lng]}>
